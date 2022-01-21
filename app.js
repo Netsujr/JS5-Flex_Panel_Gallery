@@ -6,8 +6,12 @@ function toggleOpen() {
 }
 
 function wordAppear(event) {
-  this.classList.toggle('open-active');
+  // console.log(event.propertyName);
+  if(event.propertyName.includes('flex')) {
+    this.classList.toggle('open-active');
+  }
 }
 
 panels.forEach(panel => panel.addEventListener('click', toggleOpen));
 panels.forEach(panel => panel.addEventListener('transitionend', wordAppear));
+//transition end is an event listener thats related to css
